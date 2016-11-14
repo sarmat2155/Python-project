@@ -1,8 +1,8 @@
 import tkinter
 
-WIDTH = 640
-HEIGHT = 480
-BG_COLOR = 'aqua'
+WIDTH = 840
+HEIGHT = 650
+BG_COLOR = 'white'
 ZERO = 0
 
 
@@ -38,7 +38,7 @@ class Balls():
 def mouse_click(events):
     global main_ball
     if events.num == 1:
-        main_ball = Balls(events.x, events.y, 35, 'red', 3, 3)
+        main_ball = Balls(events.x, events.y, 25, 'green', 5, 5)
         main_ball.draw()
         main_ball.move()
     else:
@@ -58,5 +58,7 @@ canvas = tkinter.Canvas(root, width=WIDTH,height=HEIGHT,bg=BG_COLOR)
 canvas.pack()
 canvas.bind('<Button-1>', mouse_click)
 canvas.bind('<Button-3>',mouse_click, '+')
+if 'main_ball' in globals():
+    del main_ball
 movement()
 root.mainloop()
